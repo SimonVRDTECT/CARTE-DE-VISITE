@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Simon Cailleau - VRD'TECT</title>
+    <title>Cailleau Simon - VRD'TECT</title>
 
-    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIkNhaWxsZWF1IFNpbW9uIiwKICAic2hvcnRfbmFtZSI6ICJDYWlsbGVhdSBTLiIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjZTRlOWYyIiwKICAidGhlbWVfY29sb3IiOiAiIzAwNTZiMyIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9kLzE3ekh5SFRfa2Rjc1pzSnMtaFB4S1lNeVNqMEV1OUVsIiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9wbmciCiAgICB9CiAgXQp9">
+    <link rel="manifest" href="data:application/manifest+json;base64,ewogICJuYW1lIjogIkNhaWxsZWF1IFNpbW9uIiwKICAic2hvcnRfbmFtZSI6ICJDYWlsbGVhdSBTLiIsCiAgInN0YXJ0X3VybCI6ICIuIiwKICAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwKICAiYmFja2dyb3VuZF9jb2xvciI6ICIjNEE2NTgzIiwKICAidGhlbWVfY29sb3IiOiAiIzAwNTZiMyIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9kLzE3ekh5SFRfa2Rjc1pzSnMtaFB4S1lNeVNqMEV1OUVsIiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9wbmciCiAgICB9CiAgXQp9">
     
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="theme-color" content="#f0f2f5">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#4A6583">
 
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
         :root {
-            --color-primary: #0056b3; /* Bleu pro VRD'TECT */
-            --color-bg: #f0f2f5;    /* Fond clair gris-bleuté */
-            --glass: rgba(255, 255, 255, 0.85);
-            --glass-border: rgba(0, 0, 0, 0.08);
+            --color-primary: #a8c7fa;
+            --color-accent: #4fc3f7;
+            --color-bg: #4A6583; /* Ta nouvelle couleur de fond : Bleu Ardoise */
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.12);
             --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            --text-main: #1a202c;
-            --text-muted: #556677;
         }
 
         * {
@@ -36,8 +35,9 @@
             height: 100%;
             width: 100%;
             background-color: var(--color-bg);
+            background-image: radial-gradient(circle at 50% 30%, #5d7a99 0%, #4A6583 100%);
             font-family: var(--font-main);
-            color: var(--text-main);
+            color: #ffffff;
             overflow: hidden;
         }
 
@@ -56,36 +56,37 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            perspective: 1000px;
         }
 
         .card-container {
             background: var(--glass);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 35px;
             padding: 40px 25px;
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
-            animation: slideUp 0.8s ease-out;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+            animation: slideUp 1s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(40px) rotateX(10deg); }
+            to { opacity: 1; transform: translateY(0) rotateX(0deg); }
         }
 
         #share-btn {
             position: absolute;
             top: 25px;
             right: 25px;
-            background: rgba(0, 0, 0, 0.04);
+            background: rgba(255, 255, 255, 0.1);
             border: none;
-            width: 42px;
-            height: 42px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -94,97 +95,97 @@
             transition: 0.3s;
         }
 
-        #share-btn svg { width: 18px; height: 18px; fill: var(--color-primary); }
+        #share-btn svg { width: 20px; height: 20px; fill: var(--color-primary); }
 
         .logo {
             width: 180px;
-            max-height: 70px;
+            max-height: 80px;
             object-fit: contain;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.1));
         }
 
         h1 {
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 800;
+            letter-spacing: -0.5px;
             margin-bottom: 5px;
-            color: #003366;
+            background: linear-gradient(to right, #fff, #a8c7fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .job-title {
-            color: var(--text-muted);
-            font-size: 12px;
+            color: var(--color-primary);
+            font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-weight: 700;
-            margin-bottom: 25px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            opacity: 0.9;
             line-height: 1.4;
         }
 
         .links-group {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .action-link {
             display: flex;
             align-items: center;
             padding: 14px 18px;
-            background: #ffffff;
-            border: 1px solid rgba(0, 0, 0, 0.04);
-            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
             margin-bottom: 10px;
             text-decoration: none;
-            color: var(--text-main);
-            font-weight: 500;
-            font-size: 14px;
-            transition: 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            color: #eee;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .action-link:hover {
+            background: rgba(255, 255, 255, 0.12);
             border-color: var(--color-primary);
-            background: #f8faff;
-            transform: translateY(-1px);
+            transform: scale(1.02);
         }
 
         .action-link svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             fill: var(--color-primary);
             margin-right: 15px;
         }
 
         .qr-section {
-            background: #ffffff;
-            padding: 12px;
-            border-radius: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 25px;
             display: inline-block;
-            margin-bottom: 25px;
-            border: 1px solid #e2e8f0;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         #qrcode-canvas {
             display: block;
-            width: 130px !important;
-            height: 130px !important;
+            width: 160px !important; /* Taille originale rétablie */
+            height: 160px !important;
         }
 
         .btn-add {
             width: 100%;
-            padding: 18px;
-            border-radius: 20px;
+            padding: 20px;
+            border-radius: 22px;
             border: none;
             font-weight: 800;
-            font-size: 13px;
-            background: var(--color-primary);
-            color: #ffffff;
+            font-size: 14px;
+            background: #FFFFFF;
+            color: #003366;
             text-transform: uppercase;
             letter-spacing: 1px;
             cursor: pointer;
-            box-shadow: 0 8px 16px rgba(0, 86, 179, 0.15);
-            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
-        .btn-add:active { transform: scale(0.98); }
     </style>
 </head>
 <body>
@@ -199,7 +200,7 @@
 
             <img src="https://cdn1.site-media.eu/images/576%2C2000x546%2B0%2B527/12103156/VRDTECT.png" alt="Logo VRD'TECT" class="logo">
             
-            <h1>Simon Cailleau</h1>
+            <h1>Cailleau Simon</h1>
             <div class="job-title">Responsable terrain Topographie - Récolement</div>
 
             <div class="links-group">
@@ -215,6 +216,10 @@
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.95-7-7.93 0-.68.11-1.34.31-1.97l6.69 6.69v3.21zm-7.9-10.87c.18-.74.45-1.47.8-2.14l5.13 5.13-5.93-2.99zm4.25-6.84c.67-.35 1.4-.62 2.14-.8L7.84 9.1l-2.99-5.93zm6.84-4.25c.74.18 1.47.45 2.14.8l-5.13 5.13 2.99 5.93zm-3.21 7.9c.49 3.95 3.95 7 7.93 7 .68 0 1.34-.11 1.97-.31L12.07 12l-3.21 3.21z"/></svg>
                     <span>Consulter le site web</span>
                 </a>
+                <a href="https://maps.app.goo.gl/35uU7p6u8yA4uR7y8" target="_blank" class="action-link">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Siège Social : Beaucaire</span>
+                </a>
             </div>
 
             <div class="qr-section">
@@ -222,27 +227,25 @@
             </div>
 
             <button id="vcard-btn" class="btn-add">
-                Enregistrer le contact
+                Sauvegarder le contact
             </button>
         </div>
     </div>
 
     <script>
-        // Particules discrètes pour fond clair
         particlesJS("particles-js", {
             "particles": {
-                "number": { "value": 40, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#0056b3" },
+                "number": { "value": 50, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
                 "shape": { "type": "circle" },
                 "opacity": { "value": 0.1, "random": false },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#0056b3", "opacity": 0.05, "width": 1 },
+                "size": { "value": 2, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.05, "width": 1 },
                 "move": { "enable": true, "speed": 1 }
             },
             "retina_detect": true
         });
 
-        // CONTACT DATA CORRIGÉ (N et FN)
         const contact = {
             n: 'Cailleau;Simon;;;',
             fn: 'Simon Cailleau',
@@ -260,7 +263,7 @@
             const canvas = document.getElementById('qrcode-canvas');
             if (window.QRCode) {
                 QRCode.toCanvas(canvas, vCardData, {
-                    width: 260,
+                    width: 320,
                     margin: 0,
                     color: { dark: '#003366', light: '#ffffff' }
                 });
@@ -283,7 +286,7 @@
             const url = window.URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'Simon_Cailleau.vcf';
+            a.download = 'Cailleau_Simon.vcf';
             a.click();
         };
 
