@@ -257,7 +257,8 @@
         });
 
         const contact = {
-            fn: 'Cailleau Simon',
+            n: 'Cailleau;Simon;;;', // <-- NOUVEAU : Format Nom;Prénom;;;
+            fn: 'Simon Cailleau',   // C'est le nom complet qui s'affichera
             title: 'Responsable terrain pole topographie - récolement',
             tel: '+33674509751',
             email: 's.cailleau@vrdtect.com',
@@ -266,8 +267,8 @@
             url: window.location.href
         };
 
-        // vCard mise à jour avec le nouveau TITLE
-        const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:${contact.fn}\nORG:${contact.org}\nTITLE:${contact.title}\nTEL;TYPE=CELL:${contact.tel}\nEMAIL:${contact.email}\nADR;TYPE=WORK:;;${contact.adr}\nURL:${contact.url}\nEND:VCARD`;
+        // vCard mise à jour avec les champs N et FN
+        const vCardData = `BEGIN:VCARD\nVERSION:3.0\nN:${contact.n}\nFN:${contact.fn}\nORG:${contact.org}\nTITLE:${contact.title}\nTEL;TYPE=CELL:${contact.tel}\nEMAIL:${contact.email}\nADR;TYPE=WORK:;;${contact.adr}\nURL:${contact.url}\nEND:VCARD`;
 
         function initQR() {
             const canvas = document.getElementById('qrcode-canvas');
